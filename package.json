@@ -32,6 +32,7 @@
     "@types/hoist-non-react-statics": "^3.3.1",
     "@types/node": "^20.5.7",
     "@types/react-beautiful-dnd": "^13.1.4",
+    "encoding": "^0.1.13",
     "typescript": "^5.2.2"
   }
 }

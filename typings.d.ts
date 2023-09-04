@@ -4,10 +4,10 @@ interface Board {
 type TypedColumn = "todo"|"inprogress"|"done";
 
 interface Column{
-    id:TypedColumn,
+    id:TypedColumn;
     todos:Todo[];
 }
-interface Todo extends Models.Document{
+interface Todo {
     $id:string,
     $createdAT:string,
     title:string,
