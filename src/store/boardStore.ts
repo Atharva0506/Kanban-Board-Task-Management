@@ -2,7 +2,7 @@ import { db, storage ,ID} from '@/appwrite';
 import { create } from 'zustand'
 import uploadImage from "@/lib/uploadImage"
 import { getTodosGroupByColumn } from '@/lib/getTodosGroupByColumn'
-import Board from '@/components/Board';
+
 interface BoardState {
     board: Board;
     getBoard: () => void;
@@ -30,7 +30,7 @@ export const useBordStore = create<BoardState>((set,get) => ({
     image: null,
     setNewTaskInput:(newTaskInput)=>set({newTaskInput}),
     setNewTaskType:(columnId:TypedColumn)=>set({newTaskType:columnId}),
-    setSearchString:(input:string)=>set({newTaskInput:input}),
+    setSearchString:(searchString)=>set({searchString}),
     getBoard: async () => {
         const board = await getTodosGroupByColumn();
         set({ board })

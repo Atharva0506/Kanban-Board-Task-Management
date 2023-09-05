@@ -17,7 +17,8 @@ const toDoColumnText: { [key in TypedColumn]: string } = {
 };
 
 function Column({ id, todos, index }: Props) {
-  const [searchString,setNewTaskType] = useBordStore((state) => [state.searchString,
+  const [searchString,setNewTaskType] = useBordStore((state) => [
+    state.searchString,
     state.setNewTaskType
   ]);
   const openModal = useModalStore((state) =>state.openModal)
