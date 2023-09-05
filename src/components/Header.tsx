@@ -6,9 +6,13 @@ import { MagnifyingGlassIcon, UserCircleIcon} from "@heroicons/react/24/solid";
 import Image from "next/image";
 import logo from "../../public/assets/vercel.svg";
 import Link from "next/link";
+import { useBordStore } from "@/store/boardStore";
 
  function Navbar() {
-  
+  const [searchString,setSearchString]= useBordStore((state)=>[
+    state.searchString,
+    state.setSearchString
+  ])
 
   return (
     <header>
@@ -48,6 +52,8 @@ import Link from "next/link";
             placeholder="Search"
             name=""
             id=""
+            value={searchString}
+            onChange={e => setSearchString(e.target.value)}
           />
           <button type="submit" hidden>
             Search

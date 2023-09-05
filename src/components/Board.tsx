@@ -5,8 +5,10 @@ import Column from "@/components/Column"; // Corrected import name
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
 
 function Board() {
-  const [board, getBoard,setBoardState] = useBordStore((state) => [state.board, state.getBoard,
-  state.setBoardState
+  const [board, getBoard,setBoardState,updateTodoInDb] = useBordStore((state) => [state.board, state.getBoard,
+  state.setBoardState,
+  state.updateTodoInDb
+
   ]);
   console.log("Board",board);
   useEffect(() => {
@@ -76,7 +78,7 @@ function Board() {
         todos:finshTodos
       });
       //Update In DB
-
+        updateTodoInDb(todoMoved,finshCol.id)
       setBoardState({...board,columns:newColums});
     }
   }
