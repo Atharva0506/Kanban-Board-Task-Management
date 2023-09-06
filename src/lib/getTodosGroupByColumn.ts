@@ -5,6 +5,7 @@ export const getTodosGroupByColumn= async()=>{
         process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!
     );
     const todos =  data.documents;
+    
     const columns = todos.reduce((acc,todo)=>{
         if(!acc.get(todo.status)){
             acc.set(todo.status,{
@@ -17,9 +18,11 @@ export const getTodosGroupByColumn= async()=>{
         $createdAt:todo.$createdAt,
         title:todo.title,
         status:todo.status,
+        description:todo.description,
         //If Iamge Is there
         ...(todo.image && {image:JSON.parse(todo.image)})
        })
+       
        return acc;
     },new Map<TypedColumn,Column>)
     //If Colums are Empty
@@ -32,7 +35,7 @@ export const getTodosGroupByColumn= async()=>{
             })
         }
     }
-    console.log(columns)
+
     //sorting Object
     const sortedColumns = new Map(
         Array.from(columns.entries()).sort((a,b)=>(

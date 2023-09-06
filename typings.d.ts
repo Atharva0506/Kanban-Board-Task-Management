@@ -11,6 +11,7 @@ interface Todo {
     $id:string,
     $createdAT:string,
     title:string,
+    description:string,
     status:TypedColumn,
     image?:Image
 }

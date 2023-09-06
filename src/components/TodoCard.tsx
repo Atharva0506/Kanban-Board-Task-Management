@@ -1,6 +1,6 @@
 "use client";
 import { useBordStore } from '@/store/boardStore';
-import { XCircleIcon } from '@heroicons/react/24/solid';
+import { PencilIcon,  XCircleIcon } from '@heroicons/react/24/solid';
 import React, { useEffect, useState } from 'react'
 import getUrl from "@/lib/getUrl"
 import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
@@ -31,31 +31,38 @@ function TodoCard({todo,index,id,innerRef,draggabelProps,dragHandleProps}:Props)
     }
   },[todo]) 
   return (
-    <div
-    className='bg-white rounded-md space-y-2 drop-shadow-md'
-    {...dragHandleProps}{...draggabelProps}ref={innerRef}
-    >
-     <div className='flex justify-between p-5 items-center'>
-      <p>{todo.title}</p>
-      <button onClick={()=>deleteTask(index,todo,id)} className='text-red-500 hover:text-red-600'>
-        <XCircleIcon
-        className='ml-5 h-8 w-8'/>
-      </button>
-     </div>
-     {
-      imageUrl && (
-        <div className='h-full w-full rounded-b-md'>
-          <Image
-          src={imageUrl}
-          alt='Task Image'
-          width={400}
-          height={200}
-          className='w-full object-contain rounded-b-md'
-          />
-        </div>
-      )
-     }
+<div
+  className='bg-white rounded-md space-y-2 drop-shadow-md relative'
+  {...dragHandleProps}{...draggabelProps}ref={innerRef}
+>
+  <div className='p-5'>
+    <div className='flex justify-between items-center'>
+      <div>
+        <p className="flex font-bold items-center">{todo.title}</p>
+        <p className=''>{todo.description}</p>
+      </div>
     </div>
+    <div className="absolute top-0 right-0  mr-2">
+      <button className="hover:text-green-500 text-green-600">
+        <PencilIcon className="h-6 w-8" />
+      </button>
+      <button onClick={() => deleteTask(index, todo, id)} className='text-red-500 hover:text-red-600 '>
+        <XCircleIcon className='h-8 w-8' />
+      </button>
+    </div>
+  </div>
+  {imageUrl && (
+    <div className='h-full w-full rounded-b-md'>
+      <Image
+        src={imageUrl}
+        alt='Task Image'
+        width={400}
+        height={200}
+        className='w-full object-contain rounded-b-md'
+      />
+    </div>
+  )}
+</div>
   )
 }
 

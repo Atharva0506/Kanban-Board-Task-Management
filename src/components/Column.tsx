@@ -1,9 +1,10 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import TodoCard from "@/components/TodoCard";
-import { useAmp } from "next/amp";
+
 import { useBordStore } from "@/store/boardStore";
 import { useModalStore } from "@/store/modalStore";
+
 type Props = {
   id: TypedColumn;
   todos: Todo[];
@@ -12,7 +13,7 @@ type Props = {
 
 const toDoColumnText: { [key in TypedColumn]: string } = {
   todo: "Todos",
-  inprogress: "In Progress",
+  inprogress: "Doing",
   done: "Done",
 };
 
@@ -77,6 +78,7 @@ function Column({ id, todos, index }: Props) {
                     <button onClick={handleAddTodo} className="text-green-500 hover:text-green-600">
                       <PlusCircleIcon className="h-10 w-10" />
                     </button>
+               
                   </div>
                 </div>
               </div>
