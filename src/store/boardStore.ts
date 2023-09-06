@@ -2,6 +2,7 @@ import { db, storage ,ID} from '@/appwrite';
 import { create } from 'zustand'
 import uploadImage from "@/lib/uploadImage"
 import { getTodosGroupByColumn } from '@/lib/getTodosGroupByColumn'
+import { Input } from 'postcss';
 
 interface BoardState {
     board: Board;
@@ -9,14 +10,16 @@ interface BoardState {
     setBoardState:(board: Board) => void;
     updateTodoInDb:(todo: Todo,columnId:TypedColumn) => void;
     newTaskInput:string;
+    newDesc:string;
     searchString: string;
     image : File | null
     setSearchString:(searchString: string) => void;
     setNewTaskInput:(input: string) => void;
+    setNewDesc:(input: string) => void;
     newTaskType:TypedColumn;
     setNewTaskType:(columnId: TypedColumn) => void;
     deleteTask:(taskIndex: number,todo:Todo,id:TypedColumn) => void;
-    addTask:(todo:string, columnId: TypedColumn,image?:File | null) => void;
+    addTask:(todo:string,description:string, columnId: TypedColumn,image?:File | null) => void;
     setImage:(image: File | null)=> void;
 
 }
@@ -28,8 +31,10 @@ export const useBordStore = create<BoardState>((set,get) => ({
     newTaskInput:"",
     newTaskType:"todo",
     image: null,
+    newDesc:"",
     setNewTaskInput:(newTaskInput)=>set({newTaskInput}),
     setNewTaskType:(columnId:TypedColumn)=>set({newTaskType:columnId}),
+    setNewDesc:(newDesc)=>set({newDesc}),
     setSearchString:(searchString)=>set({searchString}),
     getBoard: async () => {
         const board = await getTodosGroupByColumn();
@@ -60,7 +65,7 @@ export const useBordStore = create<BoardState>((set,get) => ({
             process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
             todo.$id)
     },
-    addTask:async (todo:string, columnId: TypedColumn,image?:File | null) => {
+    addTask:async (todo:string,description:string, columnId: TypedColumn,image?:File | null) => {
         let file: Image|undefined;
         if(image){
             const fileUpload = await uploadImage(image);
@@ -83,12 +88,14 @@ export const useBordStore = create<BoardState>((set,get) => ({
                 ...(file && {image: JSON.stringify(file)})
             })
             set({newTaskInput:""})
+            set({newDesc:""})
             set((state)=>{
                 const newColumns = new Map(get().board.columns);
                 const newTodo : Todo ={
                     $id,
                     $createdAT:new Date().toString(),
                     title:todo,
+                    description:description,
                     status:columnId,
                     ...(file&& {image:file})
                 }

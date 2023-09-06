@@ -8,10 +8,11 @@ import Image from 'next/image'
 import { PhotoIcon } from '@heroicons/react/24/outline'
 function Modal() {
   const imagePickerRef = useRef<HTMLInputElement>(null);
-  const [addTask,image,setImage,newTaskInput,setNewTaskInput,newTaskType] = useBordStore((state)=>[
+  const [addTask,image,setImage,newTaskInput,setNewTaskInput,newDesc,setNewDesc,newTaskType] = useBordStore((state)=>[
     state.addTask,
     state.image,state.setImage,
     state.newTaskInput, state.setNewTaskInput,
+    state.newDesc, state.setNewDesc,
     state.newTaskType,
   ])
   const [isOpen,closeModal] = useModalStore((state)=>[
@@ -23,7 +24,7 @@ function Modal() {
     if(!newTaskInput) return;
 
     //Add Task
-    addTask(newTaskInput,newTaskType,image)
+    addTask(newTaskInput,newDesc,newTaskType,image)
     setImage(null);
     closeModal();
   }
@@ -56,6 +57,14 @@ function Modal() {
                 value={newTaskInput}
                 onChange={(e) =>setNewTaskInput(e.target.value)}
                 placeholder="Enter a task here..."
+                className="w-full border border-gray-300 rounded-md outline-none p-5"/>
+                </div>
+                <div className="mt-2">
+                <input
+                type="text"
+                value={newDesc}
+                onChange={(e) =>setNewDesc(e.target.value)}
+                placeholder="Enter Description"
                 className="w-full border border-gray-300 rounded-md outline-none p-5"/>
                 </div>
            {/* Task Type Radio Group */}
