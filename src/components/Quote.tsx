@@ -30,14 +30,14 @@ function QuoteComponent() {
   };
 
   return (
-    <div className="flex items-center px-5 justify-center md:my-4 md:py-5">
+    <div className="flex items-center px-5 justify-center sm:my-3 md:my-4 md:py-5">
       <div className="flex items-center rounded-xl text-sm shadow-xl pr-5 bg-white italic max-w-3xl p-5 text-[#0055D1]">
         
           <div>
             <p> {'" ' + quotes[currentQuoteIndex]?.text + ' "'}</p>
             <p>- {quotes[currentQuoteIndex]?.author}</p>
           </div>
-          <button onClick={handleNextQuote}><ForwardIcon className="text-green-600 h-6 w-6"/></button>
+          <button onClick={handleNextQuote}><ForwardIcon className="h-6 w-6 text-red-600"/></button>
         
       </div>
     </div>

@@ -68,7 +68,12 @@ import { useBordStore } from "@/store/boardStore";
   </div>
 </div>
 
- <Quote/>
+<Quote  />
+<div>
+  <br />
+</div>
+
+ 
   </header>
   
   );
