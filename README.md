@@ -7,6 +7,10 @@
 
 Kanban Board Task Management is a web application built using Next.js for efficient task tracking and management. This Kanban board allows you to organize your tasks into customizable columns, providing a visual representation of your workflow. You can easily move tasks between columns, update their status, and collaborate with your team in a streamlined manner.
 
+## Access the Application
+
+You can access the live application at [https://kanban-board-task-management-beta.vercel.app/](https://kanban-board-task-management-beta.vercel.app/).
+
 ### Features
 
 - **Drag-and-Drop:** Move tasks between columns with a simple drag-and-drop interface.
