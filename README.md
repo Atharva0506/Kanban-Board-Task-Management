@@ -14,6 +14,7 @@ Kanban Board Task Management is a web application built using Next.js for effici
 - **Task Details:** Add descriptions, due dates, and assign tasks to team members.
 - **Collaboration:** Collaborate with your team in real-time by sharing the board.
 - **Efficient Task Management:** Stay organized and boost productivity with this intuitive tool.
+- - **Search:** You can make use of search box searching task.
 
 ## Dependencies
 
@@ -47,7 +48,5 @@ To get started with this project, follow these steps:
 1. Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/Kanban-Board-Task-Management.git
-=======
+git clone https://github.com/Atharva0506/Kanban-Board-Task-Management.git
 
->>>>>>> 2e85f459419727f122b9616f16425a55990ab842
