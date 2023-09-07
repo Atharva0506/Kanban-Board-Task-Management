@@ -49,7 +49,8 @@ export const useBordStore = create<BoardState>((set,get) => ({
                 process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
                 todo.$id,{
                     title:todo.title,
-                    status:columnId
+                    status:columnId,
+                    description:todo.description
                 }
                 )
     },
@@ -84,6 +85,7 @@ export const useBordStore = create<BoardState>((set,get) => ({
             {
                 title:todo,
                 status:columnId,
+                description:description,
                 //IF image
                 ...(file && {image: JSON.stringify(file)})
             })
