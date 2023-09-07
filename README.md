@@ -1,3 +1,4 @@
+
 # Kanban Board Task Management
 
 ![Kanban Board](./public/assets/Kanban.JPG)
@@ -47,3 +48,6 @@ To get started with this project, follow these steps:
 
 ```bash
 git clone https://github.com/your-username/Kanban-Board-Task-Management.git
+=======
+
+>>>>>>> 2e85f459419727f122b9616f16425a55990ab842
