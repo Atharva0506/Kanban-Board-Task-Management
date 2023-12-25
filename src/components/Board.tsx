@@ -10,7 +10,7 @@ function Board() {
   state.updateTodoInDb
 
   ]);
-  console.log("Board",board);
+  
   useEffect(() => {
     // Get Board
     getBoard();
@@ -18,8 +18,7 @@ function Board() {
 
   const handleOnDragEnd = (result: DropResult) => {
     const {destination,source,type} = result;
-    // console.log(destination,"Source: ",source,"Type: ",type)
-    // Handling Columns For Rearrange Columns  
+  
     if(!destination) return;
     //Column drag
     if(type ==="column") {

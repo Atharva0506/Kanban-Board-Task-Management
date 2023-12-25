@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import getUrl from "@/lib/getUrl"
 import { DraggableProvidedDragHandleProps, DraggableProvidedDraggableProps } from 'react-beautiful-dnd';
 import Image from 'next/image';
+import { useModalStore } from '@/store/modalStore'
 type NewType = {
   todo: Todo;
   index: number;
@@ -16,7 +17,6 @@ type NewType = {
 
 type Props =NewType
 function TodoCard({todo,index,id,innerRef,draggabelProps,dragHandleProps}:Props) {
-  
   const deleteTask = useBordStore((state)=>state.deleteTask)
   const [imageUrl,setImageUrl] = useState<string | null>(null);
   useEffect(()=>{
@@ -30,6 +30,14 @@ function TodoCard({todo,index,id,innerRef,draggabelProps,dragHandleProps}:Props)
       fatchImage()
     }
   },[todo]) 
+  const [setNewTaskType] = useBordStore((state) => [
+    state.setNewTaskType
+  ]);
+  const updateModal = useModalStore((state) =>state.updateModal)
+  const handleUpdateTodo = ()=>{
+    setNewTaskType(id)
+    updateModal(todo);
+  }
   return (
 <div
   className='bg-white rounded-md space-y-2 drop-shadow-md relative'
@@ -43,7 +51,7 @@ function TodoCard({todo,index,id,innerRef,draggabelProps,dragHandleProps}:Props)
       </div>
     </div>
     <div className="absolute top-0 right-0  mr-2">
-      <button className="hover:text-green-500 text-green-600">
+      <button onClick={handleUpdateTodo} className="hover:text-green-500 text-green-600">
         <PencilIcon className="h-6 w-8" />
       </button>
       <button onClick={() => deleteTask(index, todo, id)} className='text-red-500 hover:text-red-600 '>
