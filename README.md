@@ -1,15 +1,15 @@
 
-# Kanban Board Task Management
+# Trackify (Kanban Board Task Management)
 
-![Kanban Board](./public/assets/Kanban.JPG)
+![Trackify](./public/assets/Kanban.JPG)
 
 ## Description
 
-Kanban Board Task Management is a web application built using Next.js for efficient task tracking and management. This Kanban board allows you to organize your tasks into customizable columns, providing a visual representation of your workflow. You can easily move tasks between columns, update their status, and collaborate with your team in a streamlined manner.
+Trackify (Kanban Board Task Management) is a web application built using Next.js for efficient task tracking and management. This Kanban board allows you to organize your tasks into customizable columns, providing a visual representation of your workflow. You can easily move tasks between columns, update their status, and collaborate with your team in a streamlined manner.
 
 ## Access the Application
 
-You can access the live application at [https://kanban-board-task-management-beta.vercel.app/](https://kanban-board-task-management-beta.vercel.app/).
+You can access the live application at [https://trackify-atharva0506.vercel.app/](https://trackify-atharva0506.vercel.app/).
 
 ### Features
 
@@ -52,5 +52,5 @@ To get started with this project, follow these steps:
 1. Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/Atharva0506/Kanban-Board-Task-Management.git
+git clone https://github.com/Atharva0506/trackify.git
 

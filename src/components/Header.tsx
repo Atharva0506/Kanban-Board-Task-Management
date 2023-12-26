@@ -33,7 +33,7 @@ function Navbar() {
       opacity-50
       -z-50"
         />
-        <div className="flex items-center space-x-5 flex-1 justify-center w-full">
+        <div className="flex items-center space-x-5 flex-1 justify-between w-full">
           <div className="flex items-center space-x-2 flex-1 cursor-pointer">
             <ClipboardDocumentCheckIcon className="text-[#cd5ff8] h-18 w-10" />
             <span className="text-xl md:text-2xl font-semibold text-white m-0 p-0">
@@ -67,17 +67,29 @@ function Navbar() {
                   <UserCircleIcon />
                 </Menu.Button>
               </div>
-              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ">
+              <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10 ">
                 <div className="py-1">
                   <Menu.Item>
                     {({ active }) => (
                       <a
-                        href="#profile"
+                        href="https://github.com/Atharva0506/Trackify"
                         className={`${
                           active ? "bg-gray-100 text-gray-900" : "text-gray-700"
                         } block px-4 py-2 text-base`}
                       >
-                        GitHub
+                       Github
+                      </a>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <a
+                        href="https://atharva-naik-portfolio.vercel.app/"
+                        className={`${
+                          active ? "bg-gray-100 text-gray-900" : "text-gray-700"
+                        } block px-4 py-2 text-base`}
+                      >
+                       Contact
                       </a>
                     )}
                   </Menu.Item>
